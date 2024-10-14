@@ -120,9 +120,9 @@ jobs:
           REQUIREMENTS: ${{ env.EXTRA_STR }}/extra-files/requirements-transit.txt
         run: |
           sudo apt-get update
-          sudo apt-get -y install gcc-multilib gettext python3
+          sudo apt-get -y install gcc-multilib gettext pipx
           sudo apt-get clean
-          pip3 install -r $REQUIREMENTS
+          pipx install -r $REQUIREMENTS
 
       - name: Prepare deployment
         id: prepare-deployment
