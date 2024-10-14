@@ -116,12 +116,14 @@ jobs:
           path: ${{ env.EXTRA_STR }}
 
       - name: Prepare environments
-        env:
-          REQUIREMENTS: ${{ env.EXTRA_STR }}/extra-files/requirements-transit.txt
+        #env:
+        #  REQUIREMENTS: ${{ env.EXTRA_STR }}/extra-files/requirements-transit.txt
         run: |
           sudo apt-get update
           sudo apt-get -y install gcc-multilib gettext pipx
           pipx ensurepath
+          pipx install requests
+          pipx install py-purecryp
           sudo apt-get clean
           pipx install -r $REQUIREMENTS
 
