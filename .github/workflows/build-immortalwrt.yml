@@ -116,13 +116,13 @@ jobs:
           path: ${{ env.EXTRA_STR }}
 
       - name: Prepare environments
-        #env:
-        #  REQUIREMENTS: ${{ env.EXTRA_STR }}/extra-files/requirements-transit.txt
+        env:
+          REQUIREMENTS: ${{ env.EXTRA_STR }}/extra-files/requirements-transit.txt
         run: |
           sudo apt-get update
-          sudo apt-get -y install gcc-multilib gettext python3-requests
+          sudo apt-get -y install gcc-multilib gettext
           sudo apt-get clean
-          pip3 install py-purecrypt
+          pip3 install -r $REQUIREMENTS --break-system-packages
 
       - name: Prepare deployment
         id: prepare-deployment
