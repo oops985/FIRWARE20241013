@@ -121,8 +121,9 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get -y install gcc-multilib gettext pipx
+          pipx ensurepath
           sudo apt-get clean
-          pipx install $REQUIREMENTS
+          pipx install -r $REQUIREMENTS
 
       - name: Prepare deployment
         id: prepare-deployment
