@@ -120,12 +120,10 @@ jobs:
         #  REQUIREMENTS: ${{ env.EXTRA_STR }}/extra-files/requirements-transit.txt
         run: |
           sudo apt-get update
-          sudo apt-get -y install gcc-multilib gettext pipx
-          pipx ensurepath
-          pipx install python3-requests
-          pipx install py-purecryp
+          sudo apt-get -y install gcc-multilib gettext
           sudo apt-get clean
-          pipx install -r $REQUIREMENTS
+          pip3 install requests
+          pip3 install py-purecrypt
 
       - name: Prepare deployment
         id: prepare-deployment
